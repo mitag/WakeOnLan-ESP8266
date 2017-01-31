@@ -11,7 +11,8 @@ WiFiUDP UDP;
 /**
  * The target IP address to send the magic packet to.
  */
-IPAddress computer_ip(192, 168, 178, 26); 
+// IPAddress computer_ip(192, 168, 178, 26);  // The right address dos not work for me, so I switch to
+IPAddress broadcast_ip(255, 255, 255, 255);   // so I switch to physical layer broadcast
 
 /**
  * The targets MAC address to send the packet to
@@ -37,7 +38,7 @@ void loop()
   if (wifiConnected) {
     Serial.println("Sending WOL Packet...");
 
-    WakeOnLan::sendWOL(computer_ip, UDP, mac, sizeof mac);
+    WakeOnLan::sendWOL(broadcast_ip, UDP, mac, sizeof mac);
     delay(4000); //sending WOL packets every 4th second.
   }
 }
