@@ -11,7 +11,7 @@ WiFiUDP UDP;
 /**
  * The target IP address to send the magic packet to.
  */
-// IPAddress computer_ip(192, 168, 178, 26);  // The right address dos not work for me, so I switch to
+// IPAddress computer_ip(192, 168, 178, 26);  // The right address dos not work for me,
 IPAddress broadcast_ip(255, 255, 255, 255);   // so I switch to physical layer broadcast
 
 /**
